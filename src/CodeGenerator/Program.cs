@@ -65,9 +65,9 @@ namespace CodeGenerator
             string dllName = libraryName switch
             {
                 "cimgui" => "cimgui",
-                "cimplot" => "cimplot",
-                "cimnodes" => "cimnodes",
-                "cimguizmo" => "cimguizmo",
+                "cimplot" => "cimgui",
+                "cimnodes" => "cimgui",
+                "cimguizmo" => "cimgui",
                 _ => throw new NotImplementedException()
             };
             
@@ -617,7 +617,7 @@ namespace CodeGenerator
                     marshalledParameters[i] = new MarshalledParameter(wrappedParamType, false, nativeArgName, false);
                     preCallLines.Add($"{tr.Type} {nativeArgName} = {correctedIdentifier}.NativePtr;");
                 }
-                else if ((tr.Type.EndsWith("*") || tr.Type.Contains("[") || tr.Type.EndsWith("&")) && tr.Type != "void*" && tr.Type != "ImGuiContext*" && tr.Type != "ImPlotContext*"&& tr.Type != "EditorContext*")
+                else if ((tr.Type.EndsWith("*") || tr.Type.Contains("[") || tr.Type.EndsWith("&")) && tr.Type != "void*" && tr.Type != "ImGuiContext*" && tr.Type != "ImPlotContext*" && tr.Type != "EditorContext*" && tr.Type != "Context*")
                 {
                     string nonPtrType;
                     if (tr.Type.Contains("["))
@@ -796,7 +796,7 @@ namespace CodeGenerator
 
         private static bool CorrectDefaultValue(string defaultVal, TypeReference tr, out string correctedDefault)
         {
-            if (tr.Type == "ImGuiContext*" || tr.Type == "ImPlotContext*" || tr.Type == "EditorContext*")
+            if (tr.Type == "ImGuiContext*" || tr.Type == "ImPlotContext*" || tr.Type == "EditorContext*" || tr.Type == "Context*")
             {
                 correctedDefault = "IntPtr.Zero";
                 return true;

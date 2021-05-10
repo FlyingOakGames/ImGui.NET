@@ -11,9 +11,10 @@ namespace ImPlotNET
         LogScale = 16,
         Time = 32,
         Invert = 64,
-        LockMin = 128,
-        LockMax = 256,
-        Lock = 384,
+        AutoFit = 128,
+        LockMin = 256,
+        LockMax = 512,
+        Lock = 768,
         NoDecorations = 15,
     }
 }

@@ -10,6 +10,7 @@ namespace ImNodesNET
     {
         public EmulateThreeButtonMouse emulate_three_button_mouse;
         public LinkDetachWithModifierClick link_detach_with_modifier_click;
+        public int alt_mouse_button;
     }
     public unsafe partial struct IOPtr
     {
@@ -21,6 +22,7 @@ namespace ImNodesNET
         public static implicit operator IOPtr(IntPtr nativePtr) => new IOPtr(nativePtr);
         public ref EmulateThreeButtonMouse emulate_three_button_mouse => ref Unsafe.AsRef<EmulateThreeButtonMouse>(&NativePtr->emulate_three_button_mouse);
         public ref LinkDetachWithModifierClick link_detach_with_modifier_click => ref Unsafe.AsRef<LinkDetachWithModifierClick>(&NativePtr->link_detach_with_modifier_click);
+        public ref int alt_mouse_button => ref Unsafe.AsRef<int>(&NativePtr->alt_mouse_button);
         public void Destroy()
         {
             ImNodesNative.IO_destroy((IO*)(NativePtr));

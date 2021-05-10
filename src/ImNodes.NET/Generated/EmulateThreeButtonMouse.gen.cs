@@ -8,7 +8,6 @@ namespace ImNodesNET
 {
     public unsafe partial struct EmulateThreeButtonMouse
     {
-        public byte enabled;
         public byte* modifier;
     }
     public unsafe partial struct EmulateThreeButtonMousePtr
@@ -19,7 +18,6 @@ namespace ImNodesNET
         public static implicit operator EmulateThreeButtonMousePtr(EmulateThreeButtonMouse* nativePtr) => new EmulateThreeButtonMousePtr(nativePtr);
         public static implicit operator EmulateThreeButtonMouse* (EmulateThreeButtonMousePtr wrappedPtr) => wrappedPtr.NativePtr;
         public static implicit operator EmulateThreeButtonMousePtr(IntPtr nativePtr) => new EmulateThreeButtonMousePtr(nativePtr);
-        public ref bool enabled => ref Unsafe.AsRef<bool>(&NativePtr->enabled);
         public IntPtr modifier { get => (IntPtr)NativePtr->modifier; set => NativePtr->modifier = (byte*)value; }
         public void Destroy()
         {
