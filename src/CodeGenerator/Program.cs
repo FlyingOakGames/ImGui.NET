@@ -44,7 +44,7 @@ namespace CodeGenerator
             {
                 "cimgui" => "ImGuiNET",
                 "cimplot" => "ImPlotNET",
-                "cimnodes" => "ImnodesNET",
+                "cimnodes" => "ImNodesNET",
                 "cimguizmo" => "ImGuizmoNET",
                 _ => throw new NotImplementedException($"Library \"{libraryName}\" is not supported.")
             };

@@ -1,6 +1,6 @@
 namespace ImNodesNET
 {
-    public enum PinShape
+    public enum ImNodesPinShape
     {
         Circle = 0,
         CircleFilled = 1,
