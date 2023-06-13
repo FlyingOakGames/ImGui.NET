@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using ImGuiNET;
 
-namespace imnodesNET
+namespace ImNodesNET
 {
     public unsafe partial struct Style
     {
@@ -51,7 +51,7 @@ namespace imnodesNET
         public RangeAccessor<uint> colors => new RangeAccessor<uint>(NativePtr->colors, 16);
         public void Destroy()
         {
-            imnodesNative.Style_destroy((Style*)(NativePtr));
+            ImNodesNative.Style_destroy((Style*)(NativePtr));
         }
     }
 }
